@@ -1,15 +1,15 @@
-#include "botones.h"
+#include "boton.h"
 
-Botones::Botones(int p_x1, int p_y1, int p_x2, int p_y2) : GUI(p_x1, p_y1, p_x2, p_y2) {
+Boton::Boton(int p_x1, int p_y1, int p_x2, int p_y2) : GUI(p_x1, p_y1, p_x2, p_y2) {
   // Constructor
 }
 
-Botones::Botones(Botones &o) : GUI(o) {
+Boton::Boton(Boton &o) : GUI(o) {
   // Copy constructor
 }
 
 
-void Botones::Dibujar() {
+void Boton::Dibujar() {
     GUI::Color(GUI::WHITE, GUI::BLACK);
 
     // DIBUJANDO LOS BOTONES DE LA CALCULADORA
@@ -31,7 +31,7 @@ void Botones::Dibujar() {
         int x2 = x1 + botonAncho;
         int y2 = y1 + botonAlto;
 
-        Botones boton(x1, y1, x2, y2);
+        Boton boton(x1, y1, x2, y2);
         boton.DibujarRectangulo(); // Llamar al método de instancia, no al de clase
     }
 }

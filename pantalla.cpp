@@ -9,18 +9,7 @@ void Pantalla::Dibujar(){
 }
 
 void Pantalla::MostrarNumero(std::string numero){
-    GUI::Gotoxy(0,25);
-    std::cout << "Que numero desea presionar: ";
-    // COMPROBAR QUE SOLO SE INGRESAN NUMEROS DEL 0 AL 9
-    bool flag = false;
-    while (!flag) {
-        std::cin >> numero;
-        if(numero.size() == 1 && numero[0] >= '0' && numero[0] <= '9') {
-            flag = true;
-        } else {
-            std::cout << "Error: Debe ingresar un numero del 0 al 9" << std::endl;
-        }
-    }
+  GUI::Gotoxy(0,25);
   // UBICARSE DENTRO DE LA PANTALLA
   GUI::Gotoxy(20,5);
   // LIMPIAR LA PANTALLA

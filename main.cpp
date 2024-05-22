@@ -1,25 +1,24 @@
 #include <iostream>
 #include "gui.h"
+#include "carcasa.h"
 #include "pantalla.h"
-#include "botones.h"
+#include "boton.h"
 
 void pause();
 
 int main() {
     // CREACION DE LA CARCAGA DE LA CALCULADORA
-    GUI carcasa(0,0,25,23);
-    carcasa.Color(GUI::RED, GUI::GREEN);
-    carcasa.DibujarRectangulo();
-    // DIBUJANDO LA PANTALLA DE LA CALCULADORA
+    Carcasa carcasa(0,0,25,23);
+    // CREACION DE LA PANTALLA DE LA CALCULADORA
     Pantalla pantalla(3,2,22,6);
-    pantalla.Color(GUI::WHITE, GUI::BLACK);
+    // CREACION DE LOS BOTONES DE LA CALCULADORA
+    Boton botones(3,7,22,22);
+    // DIBUJAR LA CARCASA DE LA CALCULADORA
+    carcasa.Dibujar();
+    // DIBUJAR LA PANTALLA DE LA CALCULADORA
     pantalla.Dibujar();
-    // DIBUJANDO LOS BOTONES DE LA CALCULADORA
-    Botones botones;
+    // DIBUJAR LOS BOTONES DE LA CALCULADORA
     botones.Dibujar();
-    std::string numero; 
-    //std::cin >> numero;
-    pantalla.MostrarNumero(numero);
     pause();
     return 0;
 }
