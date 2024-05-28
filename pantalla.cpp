@@ -9,14 +9,12 @@ void Pantalla::Dibujar(){
 }
 
 void Pantalla::MostrarNumero(std::string numero){
-  GUI::Gotoxy(0,25);
-  // UBICARSE DENTRO DE LA PANTALLA
-  GUI::Gotoxy(20,5);
-  // LIMPIAR LA PANTALLA
-  std::cout << " ";
-  // UBICARSE DENTRO DE LA PANTALLA
-  GUI::Gotoxy(19,5);
-  // MOSTRAR EL NUMERO
-
+  // Ubicarse en la ezquina inferior derecha de la pantalla
+  GUI::Gotoxy(m_coordX2-1,m_coordY2-1);
+  // Borrar el contenido de la pantalla
+  std::cout <<"";
+  // Ubicarse en la pantalla
+  GUI::Gotoxy(m_coordX2-1,m_coordY2-1);
+  // Mostrar el numero
   std::cout << numero;
 }

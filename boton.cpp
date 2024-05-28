@@ -1,7 +1,8 @@
 #include "boton.h"
 
-Boton::Boton(int p_x1, int p_y1, int p_x2, int p_y2) : GUI(p_x1, p_y1, p_x2, p_y2) {
+Boton::Boton(int p_x1, int p_y1, int p_x2, int p_y2, std::string p_Nombre) : GUI(p_x1, p_y1, p_x2, p_y2) {
   // Constructor
+  m_Nombre = p_Nombre;
 }
 
 Boton::Boton(Boton &o) : GUI(o) {
@@ -10,31 +11,26 @@ Boton::Boton(Boton &o) : GUI(o) {
 
 
 void Boton::Dibujar() {
-    GUI::Color(GUI::WHITE, GUI::BLACK);
-
-    // DIBUJANDO LOS BOTONES DE LA CALCULADORA
-    int botonAncho = 3; // Ancho del botón
-    int botonAlto = 2; // Alto del botón
-    int espacioX = 2; // Espacio horizontal entre botones
-    int espacioY = 2; // Espacio vertical entre botones
-    int inicioX = 3; // Coordenada X donde comienza el primer botón
-    int inicioY = 8; // Coordenada Y donde comienza el primer botón
-    int botonesPorFila = 4; // Botones por fila
-    int totalBotones = 15; // Total de botones
-
-    for(int i = 0; i < totalBotones; i++) {
-        int fila = i / botonesPorFila;
-        int columna = i % botonesPorFila;
-
-        int x1 = inicioX + columna * (botonAncho + espacioX);
-        int y1 = inicioY + fila * (botonAlto + espacioY);
-        int x2 = x1 + botonAncho;
-        int y2 = y1 + botonAlto;
-
-        Boton boton(x1, y1, x2, y2);
-        boton.DibujarRectangulo(); // Llamar al método de instancia, no al de clase
-    }
+    GUI::DibujarRectangulo();
+    // Ubicarse en el centro del boton
+    GUI::Gotoxy((m_coordX1 + m_coordX2) / 2, (m_coordY1 + m_coordY2) / 2);
+    // Imprimir el nombre del boton
+    std::cout << m_Nombre;
 }
+
+void Boton::Presionar(){
+  // Cambiar el color del boton al presionarlo
+  GUI::Color(GUI::RED, GUI::BLACK);
+  // Actualizar el boton
+  GUI::DibujarRectangulo();
+  // Cambiar su estado a des presionado
+  GUI::Color(GUI::BLACK, GUI::WHITE);
+  // Realizar acción
+  Boton::enviar_Datos();
+  // Actualizar el boton
+  GUI::DibujarRectangulo();
+}
+
 
 
 

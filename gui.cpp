@@ -12,6 +12,7 @@ GUI::GUI(int p_coordX1, int p_coordY1, int p_coordX2, int p_coordY2) {
 
 
 void GUI::Gotoxy(int p_x, int p_y) {
+  // SetConsoleCursorPosition
   std::cout << "\x1b[" << p_y << ";" << p_x << "H";
 }
 

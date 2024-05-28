@@ -2,20 +2,41 @@
 #define CARCASA_H_INCLUDED
 
 #include "gui.h"
-#include <iostream>
+#include "pantalla.h"
+#include "boton.h"
+#include <string>
 
-class Carcasa : public GUI {
+class Carcasa : public GUI{
   private:
-  std::string m_name;
+    Pantalla *m_pantalla;
+    Boton *m_boton1;
+    Boton *m_boton2;
+    Boton *m_boton3;
+    Boton *m_boton4;
+    Boton *m_boton5;
+    Boton *m_boton6;
+    Boton *m_boton7;
+    Boton *m_boton8;
+    Boton *m_boton9;
+    Boton *m_boton0;
+    Boton *m_botonMas;
+    Boton *m_botonMenos;
+    Boton *m_botonPor;
+    Boton *m_botonDividir;
+    Boton *m_botonIgual;
+    std::string m_Acumulador;
+    std::string m_Operador;
+    std::string m_Operando;
   public:
-  // Constructor
-  explicit Carcasa(int x1, int y1, int x2, int y2) : GUI(x1, y1, x2, y2) {};
-  // Destructor
-  ~Carcasa() {};
-  // Metodos
-  void Dibujar();
-  std::string GetName();
-  void SetName(std::string name);
+    // Constructor
+    explicit Carcasa(int p_x1 = 0, int p_y1 = 0, int p_x2 = 0, int p_y2 = 0);
+    // Destructor
+    virtual ~Carcasa(){};
+    // Metodos de la clase
+    void Dibujar();
+    void GuardarNumero(std::string numero);
+    void GuardarOperador(std::string operador);
+    void Calcular();
 };
 
 #endif // !CARCASA_H_INCLUDED
