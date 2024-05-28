@@ -1,4 +1,4 @@
-# Proyecto de Calculadora
+# Proyecto de Calculadora v0.2
 
 Este proyecto es una implementación de una calculadora sencilla en C++, que utiliza una interfaz gráfica básica para dibujar la carcasa, pantalla y botones de la calculadora en la consola. (AUN NO TERMINADO)
 
