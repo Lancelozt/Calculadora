@@ -14,7 +14,7 @@ class Boton: public GUI{
   virtual ~Boton(){};
   void Dibujar();
   void Presionar();
-  virtual void enviar_Datos();
+  virtual void enviar_Datos(){};
 
 };
 

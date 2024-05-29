@@ -1,15 +1,14 @@
 #include <iostream>
 #include "gui.h"
-//#include "carcasa.h"
+#include "carcasa.h"
 #include "pantalla.h"
 #include "boton.h"
 
 void pause();
 
 int main() {
-    Pantalla pantalla(1,1,10,6);
-    pantalla.Dibujar();
-    pantalla.MostrarNumero("1");
+    Carcasa carcasa(1,1,30,20);
+    carcasa.Run();  
     pause();
     return 0;
 }

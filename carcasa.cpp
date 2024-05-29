@@ -1,22 +1,22 @@
 #include "carcasa.h"
 
 Carcasa::Carcasa(int p_x1, int p_y1, int p_x2, int p_y2) : GUI(p_x1, p_y1, p_x2, p_y2) {
- m_pantalla = new Pantalla();
- m_boton1 = new Boton();
- m_boton2 = new Boton();
- m_boton3 = new Boton();
- m_boton4 = new Boton();
- m_boton5 = new Boton();
- m_boton6 = new Boton();
- m_boton7 = new Boton();
- m_boton8 = new Boton();
- m_boton9 = new Boton();
- m_boton0 = new Boton();
- m_botonMas = new Boton();
- m_botonMenos = new Boton();
- m_botonPor = new Boton();
- m_botonDividir = new Boton();
- m_botonIgual = new Boton();
+ m_pantalla = new Pantalla(3,2,28,5);
+ m_boton1 = new Boton(3,6, 7,8, "1");
+ m_boton2 = new Boton(9,6, 13,8, "2");
+ m_boton3 = new Boton(15,6, 19,8, "3");
+ m_boton4 = new Boton(3,9, 7,11, "4");
+ m_boton5 = new Boton(9,9, 13,11, "5");
+ m_boton6 = new Boton(15,9, 19,11, "6");
+ m_boton7 = new Boton(3,12, 7,14, "7");
+ m_boton8 = new Boton(9,12, 13,14, "8");
+ m_boton9 = new Boton(15,12, 19,14, "9");
+ m_boton0 = new Boton(9,15, 13,17, "0");
+ m_botonMas = new Boton(21,6, 25,8, "+");
+ m_botonMenos = new Boton(21,9, 25,11, "-");
+ m_botonPor = new Boton(21,12, 25,14, "*");
+ m_botonDividir = new Boton(21,15, 25,17, "/");
+ m_botonIgual = new Boton(15,15, 19,17, "=");
  m_Acumulador = "";
  m_Operador = "";
  m_Operando = "";
@@ -24,6 +24,7 @@ Carcasa::Carcasa(int p_x1, int p_y1, int p_x2, int p_y2) : GUI(p_x1, p_y1, p_x2,
 
 
 void Carcasa::Dibujar(){
+    GUI::DibujarRectangulo();
     m_pantalla->Dibujar();
     m_boton1->Dibujar();
     m_boton2->Dibujar();
@@ -81,6 +82,53 @@ void Carcasa::GuardarOperador(std::string operador){
             // Mostrar resultado
             m_pantalla->MostrarNumero(m_Acumulador);
         }
+    } else{
+        // Salir del programa
+        if(operador == "q"){
+            exit(0);
+        }
     }
-    // Limpiar buffers
+
+}
+
+void Carcasa::Run(){
+    // Mostar la carcasa
+    Dibujar();
+    // Bucle de ejecucion
+    while (true){
+        // Mostrar "Opcion"
+        GUI::Gotoxy(32,1);
+        std::cout << "Opcion?: ";
+        // Guardar opcion
+        std::string opcion;
+        std::cin >> opcion;
+        // Procesar opcion
+        // Si opcion == bonotes
+        if(opcion == "1"){
+            // presionar boton 1
+            m_boton1->Presionar();
+            // Guardar numero
+            GuardarNumero(opcion);
+        } else if(opcion == "2"){
+            // presionar boton 2
+            m_boton2->Presionar();
+            // Guardar numero
+            GuardarNumero(opcion);
+        } else if(opcion == "3"){
+            // presionar boton 3
+            m_boton3->Presionar();
+            // Guardar numero
+            GuardarNumero(opcion);
+        } else if(opcion == "+"){
+            // presionar boton +
+            m_botonMas->Presionar();
+            // Guardar operador
+            GuardarOperador(opcion);
+        } else if(opcion == "="){
+            // presionar boton =
+            m_botonIgual->Presionar();
+            // Guardar operador
+            GuardarOperador(opcion);
+        }
+    }
 }

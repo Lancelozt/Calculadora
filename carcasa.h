@@ -36,7 +36,7 @@ class Carcasa : public GUI{
     void Dibujar();
     void GuardarNumero(std::string numero);
     void GuardarOperador(std::string operador);
-    void Calcular();
+    void Run();
 };
 
 #endif // !CARCASA_H_INCLUDED
